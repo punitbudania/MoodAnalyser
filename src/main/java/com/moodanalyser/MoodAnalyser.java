@@ -6,12 +6,11 @@ public class MoodAnalyser
 {
     static String message;
 
-    public static void main(String[] args)
-    {
+    public static void main(String[] args) throws MoodAnalysisException {
         System.out.println("Pass your message:");
         Scanner msg = new Scanner(System.in);
         message = msg.nextLine();
-        System.out.println(analyseMood());
+        System.out.println(analyseMoodAgain());
     }
 
     public MoodAnalyser()
@@ -28,6 +27,17 @@ public class MoodAnalyser
     {
         try
         {
+            return analyseMoodAgain();
+        }
+        catch (MoodAnalysisException e)
+        {
+            return "HAPPY";
+        }
+    }
+
+    public static String analyseMoodAgain() throws MoodAnalysisException {
+        try
+        {
             if (message.contains("Sad"))
                 return "SAD";
             else
@@ -35,8 +45,7 @@ public class MoodAnalyser
         }
         catch(NullPointerException e)
         {
-            return "HAPPY";
-            //throw new MoodAnalysisException("Please enter proper message");
+            throw new MoodAnalysisException("Please enter proper message");
         }
     }
 }

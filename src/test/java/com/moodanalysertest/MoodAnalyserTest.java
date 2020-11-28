@@ -16,10 +16,12 @@ public class MoodAnalyserTest
         try
         {
             ExpectedException exceptionRule = ExpectedException.none();
-            exceptionRule.excpect(MoodAnalysisException.class);
-            mood = moodAnalyser.analyseMood();
+            exceptionRule.expect(MoodAnalysisException.class);
+            mood = moodAnalyser.analyseMoodAgain();
             Assert.assertEquals("HAPPY",mood);
         }
-        catch()
+        catch (MoodAnalysisException e) {
+            e.printStackTrace();
+        }
     }
 }
