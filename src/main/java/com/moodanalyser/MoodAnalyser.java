@@ -13,26 +13,30 @@ public class MoodAnalyser
         message = msg.nextLine();
         System.out.println(analyseMood());
     }
-/*
+
+    public MoodAnalyser()
+    {
+
+    }
+
     public MoodAnalyser(String message)
     {
         this.message = message;
     }
-*/
-
 
     public static String analyseMood()
     {
-        if (message.contains("Sad"))
-            return "SAD";
-        else
-            return "HAPPY";
-        /*
+        try
+        {
+            if (message.contains("Sad"))
+                return "SAD";
+            else
+                return "HAPPY";
+        }
         catch(NullPointerException e)
         {
+            return "HAPPY";
             //throw new MoodAnalysisException("Please enter proper message");
         }
-
-         */
     }
 }
